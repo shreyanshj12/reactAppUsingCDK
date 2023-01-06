@@ -15,7 +15,7 @@ export class ReactAppUsingCdkStack extends cdk.Stack {
     const pipeline = new CodePipeline(this, 'Pipeline', {
       pipelineName: 'TestPipeline',
       synth: new ShellStep('Synth', {
-        input: CodePipelineSource.gitHub('beabetterdevv/ci-cd-aws-pipeline-demo', 'main'), //Remember to change 
+        input: CodePipelineSource.gitHub('shreyanshj12/reactAppUsingCDK', 'main'),
         commands: ['npm ci',
           'npm run build',
           'npx cdk synth']
