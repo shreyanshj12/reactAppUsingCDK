@@ -15,6 +15,6 @@ export class StorageStack extends cdk.Stack {
 
         this.bucket = new Bucket(this, 'ReactAppBucket', {
             encryption: BucketEncryption.S3_MANAGED
-        })
+        });
     }
 }

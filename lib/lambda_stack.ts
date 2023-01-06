@@ -23,6 +23,6 @@ export class LambdaStack extends cdk.Stack {
                 ENV: props.stage
             },
             role: props.bucketAccessRole
-        })
+        });
     }
 }

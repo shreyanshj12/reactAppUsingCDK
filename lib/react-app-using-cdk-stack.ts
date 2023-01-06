@@ -12,7 +12,7 @@ export class ReactAppUsingCdkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const pipeline = new CodePipeline(this, 'Pipeline', {
+    new CodePipeline(this, 'Pipeline', {
       pipelineName: 'TestPipeline',
       synth: new ShellStep('Synth', {
         input: CodePipelineSource.gitHub('shreyanshj12/reactAppUsingCDK', 'main'),
@@ -23,17 +23,17 @@ export class ReactAppUsingCdkStack extends cdk.Stack {
     });
 
     //add test stage
-    const testingStage = pipeline.addStage(new PipelineStage(this, "test", {
-      env: { account: "157559436467", region: "us-east-1" }
-    }));
+    // const testingStage = pipeline.addStage(new PipelineStage(this, "test", {
+    //   env: { account: "157559436467", region: "us-east-1" }
+    // }));
 
 
     // testingStage.addPre(new ShellStep("Run Unit Tests", { commands: ['npm install', 'npm test'] }));
-    testingStage.addPost(new ManualApprovalStep('Manual approval before production'));
+    // testingStage.addPost(new ManualApprovalStep('Manual approval before production'));
 
-    const prodStage = pipeline.addStage(new PipelineStage(this, "prod", {
-      env: { account: "157559436467", region: "us-east-1" }
-    }));
+    // const prodStage = pipeline.addStage(new PipelineStage(this, "prod", {
+    //   env: { account: "157559436467", region: "us-east-1" }
+    // }));
 
     //1. create s3 bucket
     // const bucket = new Bucket(this, 'ReactAppBucket', {
