@@ -16,6 +16,7 @@ export class ReactAppUsingCdkStack extends cdk.Stack {
       pipelineName: 'TestPipeline',
       synth: new ShellStep('Synth', {
         input: CodePipelineSource.gitHub('shreyanshj12/reactAppUsingCDK', 'main'),
+        installCommands: ['npm i -g npm@global'], // update npm
         commands: ['npm ci',
           'npm run build',
           'npx cdk synth']
