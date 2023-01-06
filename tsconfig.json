@@ -22,6 +22,7 @@
     "typeRoots": [
       "./node_modules/@types"
     ],
+    "outDir": "dist",
     "esModuleInterop": true //3. to allow - import xyz from { abc } instead of doing const xyz = require('abc')
   },
   "exclude": [

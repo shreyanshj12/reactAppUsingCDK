@@ -5,7 +5,7 @@
     "react-app-using-cdk": "bin/react-app-using-cdk.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist && tsc",
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk"
@@ -13,6 +13,7 @@
   "devDependencies": {
     "@types/jest": "^27.5.2",
     "@types/node": "10.17.27",
+    "@types/aws-lambda": "^8.10.109",
     "@types/prettier": "2.6.0",
     "aws-cdk": "2.41.0",
     "jest": "^27.5.1",

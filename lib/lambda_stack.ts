@@ -16,10 +16,10 @@ export class LambdaStack extends cdk.Stack {
 
         const getPhotosLambda = new Function(this, 'get-photos', {
             runtime: Runtime.NODEJS_16_X,
-            code: Code.fromAsset(path.join(__dirname, "..", "api", "get-photos", "dist")),
+            code: Code.fromAsset(path.join(__dirname, "dist", "lib", "get-photos")),
             handler: 'index.getPhotos',
             environment: {
-                ENV: props.stage
+                STAGE: props.stage
             },
             role: props.bucketAccessRole
         });

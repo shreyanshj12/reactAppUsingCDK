@@ -10,7 +10,7 @@ export async function getPhotos(
     event: APIGatewayProxyEventV2,
     context: Context
 ): Promise<APIGatewayProxyResultV2> {
-    console.log("React app bucket name is: " + process.env.BUCKET_NAME);
+    console.log("Stage name is: " + process.env.STAGE);
     return {
         statusCode: 200,
         body: "Hello from lambda, it is alive!",
