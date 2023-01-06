@@ -18,7 +18,7 @@ export class PipelineStage extends cdk.Stage {
             stage: stageName,
             bucketArn: storageStack.bucket.bucketArn,
         };
-        const iamStack = new IamStack(this, "IamStack", iamStackProps);
+        const iamStack = new IamStack(this, `IamStack-${stageName}`, iamStackProps);
 
         const lambdaStackProps = {
             stage: stageName,
