@@ -33,11 +33,11 @@ export class ReactAppUsingCdkStack extends cdk.Stack {
 
 
     // testingStage.addPre(new ShellStep("Run Unit Tests", { commands: ['npm install', 'npm test'] }));
-    // testingStage.addPost(new ManualApprovalStep('Manual approval before production'));
+    testingStage.addPost(new ManualApprovalStep('Manual approval before production'));
 
-    // const prodStage = pipeline.addStage(new PipelineStage(this, "prod", {
-    //   env: { account: "157559436467", region: "us-east-1" }
-    // }));
+    const prodStage = pipeline.addStage(new PipelineStage(this, "prod", {
+      env: { account: "157559436467", region: "us-east-1" }
+    }));
 
     //1. create s3 bucket
     // const bucket = new Bucket(this, 'ReactAppBucket', {

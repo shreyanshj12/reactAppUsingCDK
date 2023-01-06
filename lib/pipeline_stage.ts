@@ -1,5 +1,4 @@
 import * as cdk from 'aws-cdk-lib';
-import { StageProps } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { IamStack } from './iam_stack';
 import { LambdaStack } from './lambda_stack';
