@@ -15,7 +15,7 @@ export class LambdaStack extends cdk.Stack {
         super(scope, id, props);
 
         const getPhotosLambda = new Function(this, 'get-photos', {
-            runtime: Runtime.NODEJS_16_X,
+            runtime: Runtime.NODEJS_12_X,
             code: Code.fromAsset(path.join(__dirname, "dist", "lib", "get-photos")),
             handler: 'index.getPhotos',
             environment: {
