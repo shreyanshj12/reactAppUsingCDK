@@ -12,12 +12,12 @@ export class IamStack extends cdk.Stack {
     constructor(scope: Construct, id: string, props: IamStackProps) {
         super(scope, id, props);
 
-        this.bucketAccessRole = new Role(this, `BucketAccessRole`, {
+        this.bucketAccessRole = new Role(this, `BucketAccessRole-${props.stage}`, {
             assumedBy: new ServicePrincipal("lambda.amazonaws.com")
         });
 
-        const bucketAccessPolicy = new ManagedPolicy(this, "BucketAccessPolicy", {
-            managedPolicyName: "BucketAccessPolicy",
+        const bucketAccessPolicy = new ManagedPolicy(this, `BucketAccessPolicy-${props.stage}`, {
+            managedPolicyName: `BucketAccessPolicy-${props.stage}`,
             statements: [
                 new PolicyStatement({
                     effect: Effect.ALLOW,
